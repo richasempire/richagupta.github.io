@@ -1,1 +1,1 @@
-# richa_web
+# richagupta.github.io
