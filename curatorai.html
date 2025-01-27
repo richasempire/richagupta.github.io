@@ -1,0 +1,616 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title class="page-title">CuratorAI</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+	
+
+  <!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
+	<link
+      href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Raleway:400,800,900"
+      rel="stylesheet"
+      async
+    />
+
+	<!-- Bootstrap -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="css/flexslider.css">
+	<!-- Flaticons  -->
+	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<style>
+
+body {
+  font-family: Verdana, sans-serif;
+  margin: 0;
+  text-align: justify;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+.row > .column {
+  padding: 0 8px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+  display: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.hide {
+  display: none;
+}
+
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+img {
+  margin-bottom: -4px;
+}
+
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.container {
+	margin: 50px auto;
+	max-width: 1180px;
+	height: 600px; /* to ensure some scrolling for the demo */
+}
+iframe {
+	display: block;
+	border: none;
+}
+	</style>
+	<body>
+	<div id="colorlib-page">
+		<div class="container-wrap">
+	
+		<div id="colorlib-main">
+			<!-- 1-1 text section -->
+			<section class="colorlib-about" data-section="about">
+				<div class="colorlib-narrow-content">
+					<h1 class="colorlib-topheading">Curator.ai
+					
+					</h1>
+					<div class="col-md-6">
+					<h2 class="colorlib-heading">Co-Founder | MIT AI Hackathon Winner | MIT AI Conference NYC |</h2>
+					<h2 class="colorlib-heading">Forbes Mention | IEEE Tech Forum @ Microsoft</h2>
+				</div>
+				</div>
+				<div class="col-md-6">
+				<img class="mitlogo" src ="assets/Logos/MITLogo.png" />
+				<img class="mitlogo" src ="assets/Logos/mitai.png" />
+				<img class="mitlogo" src ="assets/Logos/mitalumnistartups.png" />
+				<img class="mitlogo" src ="assets/Logos/ieee.jpg" />
+			</div>
+			</section>
+			<section class="colorlib-about" data-section="about">
+				<div class="colorlib-narrow-content">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="about-desc">
+									<span class="heading-meta">What is Curator.ai?</span>
+									<h2 class="colorlib-heading">Vison Language Understanding for Contextual Product Recommendation</h2>
+									<p>
+										Curator.AI helps you find the perfect furniture for your space using AI and Augmented Reality (AR). It’s designed to make furnishing easy, fast, and stress-free. </p>
+<p>It offers personalized recommendations by understanding your style, space, and budget(not limited to). One can discover cohesive furniture sets, visualize them in your room using AR, and reduce endless browsing time ensuring everything fits perfectly—both visually and functionally. Whether you’re a busy professional, a first-time homeowner, or just overwhelmed by choices, this innovative blend of Vision-Language Models, ARKit/AR Core, RoomPlan API and Google Search API, will keep you stress free.</p>
+<p>It’s not just shopping—it’s smarter, waste saving, more intuitive design.</p>
+										</p>
+								</div>
+							</div>
+						</div>
+			</section>
+			<section class="colorlib-about" data-section="about">
+				<div class="colorlib-narrow-content">
+					<div class="row">
+
+						<div class="about-desc">
+							<span class="heading-meta">For who?</span>
+							<h2 class="colorlib-heading">User Stories</h2>
+							</div>
+						<div class="col-md-4 animate-box filterDiv cars" data-animate-effect="fadeInLeft">
+							<div class="project" style=" height: 300px; background-image: url(assets/Curator_ai/user1.png);">
+							</div>
+						</div>
+						<div class="col-md-4 animate-box filterDiv cars" data-animate-effect="fadeInLeft">
+							<div class="project" style=" height: 300px; background-image: url(assets/Curator_ai/user2.png);">
+							</div>
+						</div>
+						<div class="col-md-4 animate-box filterDiv cars" data-animate-effect="fadeInLeft">
+							<div class="project" style="height: 300px; background-image: url(assets/Curator_ai/user3.png);">
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+
+
+			<div id="carouselExampleCaptions" class="carousel slide col-md-12 " data-bs-ride="carousel">
+									<div class="carousel-indicators">
+										<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+										<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+										<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+									</div>
+									<div class="about-desc">
+										<span class="heading-meta">What for?</span>
+										<h2 class="colorlib-heading">Problems</h2>
+										</div>
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+							<img src="assets/Curator_ai/problem1.png" class="d-block w-100" alt="...">
+							
+							</div>
+							<div class="carousel-item">
+							<img src="assets/Curator_ai/problem2.png" class="d-block w-100" alt="...">
+							
+							</div>
+							<div class="carousel-item">
+							<img src="assets/Curator_ai/problem3.png" class="d-block w-100" alt="...">
+							</div>
+							<div class="carousel-item">
+								<img src="assets/Curator_ai/problem4.png" class="d-block w-100" alt="...">
+							</div>
+						</div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
+					</div>
+
+					
+
+			<section class="colorlib-about" data-section="about">
+					<div class="colorlib-narrow-content">
+					<div class="row">
+						<div class="about-desc">
+							<span class="heading-meta">How does Curator AI does it?</span>
+							<h2 class="colorlib-heading">Innovation</h2>
+						</div>
+					</div>
+				</div>
+				<section>
+					<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+					<div class="custom-banner" >
+						<iframe width=100% height=100% src="https://www.youtube.com/embed/ntADqKLBiW8?si=y6F_pm7FXXFSO_Ic" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</div>
+				</div>
+				</section>
+				
+				<div class="colorlib-narrow-content">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="about-desc">
+									<div class="quote-section"  >
+										<blockquote class="quote">
+										  "I would likely use this solution because it helps a lot with the search exhaustion”"
+										  <cite>— Judge's comment</cite>
+										</blockquote>
+									  
+									</div>	
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-12 animate-box filterDiv cars" data-animate-effect="fadeInLeft">
+								
+					<div class="custom-banner" style="background-image: url(assets/Curator_ai/solution.png);">
+					</div>
+					
+				</div>
+
+			
+				<div class="colorlib-narrow-content">
+					<div class="row">
+						<div class="col-md-6 animate-box filterDiv cars" data-animate-effect="fadeInLeft">
+							<div class="project" style="background-image: url(assets/Curator_ai/ai.gif);">
+							</div>
+						</div>
+						<div class="col-md-6 animate-box filterDiv cars" data-animate-effect="fadeInLeft">
+							<div class="project" style="background-image: url(assets/Curator_ai/ai2.gif);">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="colorlib-narrow-content">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="about-desc">
+									<p>Our AI system begins with 3D object recognition to map out the room's spatial arrangement. This allows us to identify where existing items, such as tables or windows, are their dimensions. With this spatial understanding, we can automatically place products in a contextually appropriate manner, like positioning a sofa in front of a window or determining the position and number of chairs for an existing table in the space. 
+										Next, we consider the room’s style and ambiance by using a vision-language model. This helps us identify the room's character—whether it's a cozy, traditional living room or a sleek, modern office. Based on this contextual analysis, we conduct an internet-wide search to find physical products you can actually purchase. We are not generating new 3D objects, we recommend real, purchasable item that works with your space.
+										</p>	
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="about-desc">
+									
+									<p>And this is displayed in AR. Because we want you to see how it would actually look like in space. How it fits and how it feels. 
+										Since we are in AR, we can’t type, therefore we we are leveraging speech and generative voice AI.
+										Where you can use your conversation to filter things with budget, rearrange objects or find new items.
+										</p>	
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</section>
+				
+				<section>
+					<div class="custom-banner" >
+						<div class="project" style="background-image: url(assets/Curator_ai/sequence.gif);">
+							
+						</div>
+					</div>
+					<div class="about-desc" >
+						<div class="col-md-6">
+						<p>
+							This sequence diagram shows Curator. Ai's two main flows: Vision-Language Product Recommendation and Generative Voice Interaction highlighting -multiple technologies for personalized and interactive AI-driven recommendation. 
+
+Vision language AI flow gives a contextual understanding of the room. And the Generative Voice AI flow gives us the user’s intention. 
+So, When the user initiates, these two data flows work together to create a contextual product recommendation which is fed into our data retrieval algorithm to search real  products. 
+The system also includes error handling, prompting the user if context is unclear or transcription fails.
+</p>
+					</div>
+				</div>
+						
+							
+						
+					
+				</section>
+				<section class="colorlib-about" data-section="about">
+					<div class="colorlib-narrow-content">
+						<div class="row">
+							<div class="col-md-12">
+							<div class="about-desc">
+								<span class="heading-meta">Business?</span>
+								<h2 class="colorlib-heading">Speech + Vision into products</h2>
+								</div>
+								<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="custom-banner" style="  background-image: url(assets/Curator_ai/business.png)">
+								</div>
+							</div>
+							</div>
+						</div>
+					</div>
+
+				</section>
+
+				<div class="colorlib-narrow-content">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="about-desc">
+									<div class="quote-section"  >
+										<blockquote class="quote">
+										  "The product solves a very unique problem that many of us come across.”"
+										  <cite>— Judge's comment</cite>
+										</blockquote>
+									  
+									</div>	
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<section class="colorlib-about" data-section="about">
+					<div class="colorlib-narrow-content">
+						<div class="row">
+							<div class="col-md-12">
+							<div class="about-desc">
+								<span class="heading-meta">Market?</span>
+								<h2 class="colorlib-heading">Market Size (USA) in 2023</h2>
+								</div>
+								<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="custom-banner" style="  background-image: url(assets/Curator_ai/market.png)">
+								</div>
+							</div>
+							</div>
+						</div>
+					</div>
+					
+				</section>
+				<div class="colorlib-narrow-content">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="about-desc">
+									<div class="quote-section"  >
+										<blockquote class="quote">
+										  "Having AI provides the appropriate suggestions and ability to visualize the product makes it a good fit for the user”"
+										  <cite>— Judge's comment</cite>
+										</blockquote>
+									  
+									</div>	
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<section class="colorlib-about" data-section="about">
+					<div class="colorlib-narrow-content">
+						<div class="row">
+							<div class="col-md-12">
+							<div class="about-desc">
+								<span class="heading-meta">Future Growth and Scalability?</span>
+								<h2 class="colorlib-heading">AI for Contextual Product Recommendation
+								</h2>
+								</div>
+								<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="custom-banner" style="  background-image: url(assets/Curator_ai/future.gif)">
+								</div>
+								</div>
+							
+							</div>
+						</div>
+					</div>
+					
+				</section>
+				<section class="colorlib-about" data-section="about">
+					<div class="colorlib-narrow-content">
+						<div class="row">
+							<div class="col-md-12">
+							<div class="about-desc">
+								<span class="heading-meta">Competitors?</span>
+								<h2 class="colorlib-heading">We are Novel</h2>
+								</div>
+								<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="custom-banner" style="  background-image: url(assets/Curator_ai/compe.png)">
+								</div>
+								</div>
+							
+							</div>
+						</div>
+					</div>
+					
+				</section>
+				<div class="colorlib-narrow-content">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="about-desc">
+									<div class="custom-banner"  >
+										
+									  <h1 style="text-align: center; font-weight: bold;">The future of shopping isn't browsing
+										it's <span style="color: rgb(124, 55, 228);">Curator AI</span>!</h1>
+									</div>	
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+		</div><!-- end:colorlib-main -->
+	</div><!-- end:container-wrap -->
+	</div><!-- end:colorlib-page -->
+
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="js/jquery.flexslider-min.js"></script>
+	<!-- Owl carousel -->
+	<script src="js/owl.carousel.min.js"></script>
+	<!-- Counters -->
+	<script src="js/jquery.countTo.js"></script>
+	
+	
+	<!-- MAIN JS -->
+	<script src="js/main.js"></script>
+
+	<script>
+  function openModal() {
+	document.getElementById("myModal").style.display = "block";
+  }
+  
+  function closeModal() {
+	document.getElementById("myModal").style.display = "none";
+  }
+  
+  var slideIndex = 1;
+  showSlides(slideIndex);
+  
+  function plusSlides(n) {
+	showSlides(slideIndex += n);
+  }
+  
+  function currentSlide(n) {
+	showSlides(slideIndex = n);
+  }
+  
+  function showSlides(n) {
+	var i;
+	var slides = document.getElementsByClassName("mySlides");
+	var dots = document.getElementsByClassName("demo");
+	var captionText = document.getElementById("caption");
+	if (n > slides.length) {slideIndex = 1}
+	if (n < 1) {slideIndex = slides.length}
+	for (i = 0; i < slides.length; i++) {
+		slides[i].style.display = "none";
+	}
+	for (i = 0; i < dots.length; i++) {
+		dots[i].className = dots[i].className.replace(" active", "");
+	}
+	slides[slideIndex-1].style.display = "block";
+	dots[slideIndex-1].className += " active";
+	captionText.innerHTML = dots[slideIndex-1].alt;
+  }
+  </script>
+
+	</body>
+</html>
+
