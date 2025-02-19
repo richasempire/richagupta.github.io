@@ -1,0 +1,356 @@
+input,
+textarea,
+select,
+ol,
+ul,
+li,
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  text-decoration: none;
+  outline: none;
+  list-style: none;
+  padding: 0;
+  text-align: justify;
+}
+
+a,
+a:hover,
+a:focus,
+*:focus-visible {
+  cursor: pointer;
+  -webkit-transition: all 0.4s ease 0s;
+  -moz-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+  text-decoration: none;
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+  border: none;
+}
+
+button:focus,
+input:focus {
+  box-shadow: none !important;
+}
+
+button {
+  cursor: pointer;
+}
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  /* font-family: 'Raleway', serif; */
+  font-family: 'Quicksand', Arial, sans-serif;
+  /* font-family: 'Playfair Display', Georgia, serif; */
+}
+
+.main_work h1 {
+  font-size: 55px;
+  color: #000;
+  font-weight: 600;
+  font-family: 'Raleway', serif;
+  padding: 20px 0px;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.011642156862745057) 0%,
+      rgba(0, 0, 0, 1) 50%,
+      rgba(255, 255, 255, 0) 100%
+    )
+    1;
+  text-align: center;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000cb;
+}
+.main_work .sub-head {
+  font-size: 19px;
+  font-weight: 500;
+  color: #000000cb;
+}
+
+.main_work li {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000cb;
+  list-style: decimal;
+}
+
+.main_work .objective {
+  font-size: 16px;
+  font-weight: 500;
+}
+.main_work a {
+  background-color: #000;
+  padding: 10px 30px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  transition: 0.3s all ease-in-out;
+  border: 1px solid #000;
+  flex-shrink: 0;
+  width: fit-content;
+}
+
+.main_work a:hover {
+  background-color: #fff;
+  color: #000;
+  transition: 0.3s all ease-in-out;
+}
+
+.main_work h3 {
+  font-size: 40px;
+  font-family: 'Raleway', serif;
+  font-weight: 500;
+}
+.dataset-overview {
+  display: block;
+  background-color: #fff;
+}
+.dataset-overview h1 {
+  font-size: 40px;
+  font-family: 'Raleway', serif;
+  font-weight: 500;
+}
+
+.dataset-overview h2 {
+  font-size: 28px;
+  font-family: 'Raleway', serif;
+  font-weight: 500;
+}
+
+.dataset-overview table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dataset-overview th,
+td {
+  padding: 12px;
+  text-align: left;
+  font-size: 16px;
+  text-align: justify;
+  font-weight: 500;
+}
+
+.dataset-overview th {
+  background-color: #ecf0f1;
+  color: #34495e;
+}
+.fulw {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.dataset-overview td {
+  background-color: #f9f9f9;
+}
+
+.dataset-overview tr:nth-child(even) td {
+  background-color: #f1f1f1;
+}
+
+.dataset-overview strong {
+  color: #2c3e50;
+}
+
+.methodology h1 {
+  font-size: 40px;
+  color: #000;
+  font-weight: 500;
+  font-family: 'Raleway', serif;
+  position: relative;
+}
+
+/* .methodology h1::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-284px, -50%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.011642156862745057) 0%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  height: 2px;
+  width: 150px;
+}
+.methodology h1::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(284px, -50%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.011642156862745057) 0%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  height: 2px;
+  width: 150px;
+} */
+
+.methodology h4 {
+  font-size: 25px;
+  color: #000000e3;
+}
+
+.methodology li {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.methodology ul li {
+  font-size: 18px;
+  color: #000000;
+  text-align: center;
+}
+
+.methodology .mth_box {
+  border-right: 1px solid transparent;
+  border-image: linear-gradient(
+      90deg,
+      rgb(0 0 0) 0%,
+      rgba(0, 0, 0, 1) 50%,
+      rgb(0 0 0 / 16%) 100%
+    )
+    1;
+  padding: 30px 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.methodology .col-md-4:last-child .mth_box {
+  border: none;
+}
+
+section {
+  overflow: hidden;
+}
+.approach h1 {
+  font-size: 40px;
+  color: #000;
+  font-weight: 500;
+  font-family: 'Raleway', serif;
+  position: relative;
+}
+.approach h2 {
+  font-size: 30px;
+  color: #000;
+  font-weight: 500;
+  font-family: 'Raleway', serif;
+}
+
+.container_cart h2 {
+  font-size: 40px;
+  color: #000;
+  font-weight: 500;
+  font-family: 'Raleway', serif;
+}
+
+.container_cart {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  height: 100%;
+}
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  height: 100%;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+.icon {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.title {
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+}
+.description {
+  font-size: 16px;
+  color: #555;
+  margin-top: 10px;
+  font-weight: 500;
+  text-align: justify;
+}
+.list-none {
+  list-style: none !important;
+}
+@media (max-width: 768px) {
+  .methodology .mth_box {
+    border-right: none;
+    border-bottom: 1px solid transparent;
+  }
+  .dataset-overview table {
+    width: 1000px;
+  }
+  .dataset-overview {
+    overflow-x: auto;
+  }
+  .approach h2 {
+    font-size: 25px !important;
+  }
+  .main_work h1 {
+    font-size: 40px;
+    text-align: start;
+  }
+}
+
+.xcab-img {
+  height: 60vh;
+}
+
+.xcab-img img {
+  object-position: bottom;
+}
+.canva-img {
+  height: 100vh;
+}
+.grnderback {
+  height: 80vh;
+}
+
+#diagram {
+  height: fit-content;
+}

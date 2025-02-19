@@ -8,6 +8,13 @@
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
 
+// Ensure the mixin is available
+@mixin box-sizing($box) {
+  -webkit-box-sizing: $box;
+  -moz-box-sizing: $box;
+  box-sizing: $box;
+}
+
 // Reset and dependencies
 @import "bootstrap/normalize";
 @import "bootstrap/print";

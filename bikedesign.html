@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bike Design Richa | Portfolio</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700"
+      rel="stylesheet"
+    />
+    <link
+      href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Raleway:400,800,900"
+      rel="stylesheet"
+      async
+    />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <section class="d-block py-5 main_work">
+      <div class="container-xl">
+        <div class="row gy-5 align-items-center justify-content-between">
+          <div class="col-12">
+            <div
+              class="d-flex justify-content-center align-items-center gap-4 flex-column"
+            >
+              <h1>Bike Design Completion</h1>
+              <div
+                class="w-100 d-flex flex-md-row flex-column align-items-md-center gap-5 justify-content-between pt-3"
+              >
+                <p class="objective">
+                  <strong>Objective : </strong>
+                  Automate bike design completion from partial images,
+                  descriptions, and parametric data.
+                </p>
+                <a
+                  target="_blank"
+                  href="https://colab.research.google.com/drive/1OxX4qKHPNC9aoY-yISDRxw_8u_JEEWQT?usp=sharing"
+                  >Click Here for Code</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="d-flex flex-column gap-3">
+              <h3>Introduction</h3>
+              <p>
+                This project addresses the challenge of completing bike designs
+                from partial inputs, marketing descriptions, and parametric data
+                using generative AI. The goal is to automate the design
+                completion process, enabling rapid visualization of creative
+                concepts while maintaining coherence with the provided inputs.
+                The dataset includes 10,000 training samples and 1,000 test
+                samples comprising partial images, masks, descriptions, and
+                ground truth targets.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="d-block buke-img">
+              <img
+                class="w-100 h-100 object-fit-cover"
+                src="images/bike.jpg"
+                alt="bike"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-5">
+      <div class="container-xl">
+        <div class="row">
+          <div class="col-12">
+            <div class="dataset-overview">
+              <div class="row gy-5 align-items-center justify-content-between">
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-8 mx-auto">
+                      <div
+                        class="d-flex flex-column justify-content-center align-items-center gap-3"
+                      >
+                        <h1>Dataset Overview</h1>
+                        <p class="text-center">
+                          This section provides an overview of the dataset used
+                          for the image inpainting task, including the types of
+                          data and their corresponding shapes.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="d-block buke-img">
+                    <img
+                      class="w-100 h-100 object-fit-cover"
+                      src="images/img_bg_2.jpg"
+                      alt="bike"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-7">
+                  <div class="d-flex flex-column gap-3">
+                    <h2>Components and Descriptions</h2>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Component</th>
+                          <th>Description</th>
+                          <th>Shape / Details</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><strong>Partial Images</strong></td>
+                          <td>Incomplete design sketches of bikes</td>
+                          <td>(10,000, 3, 128, 128)</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Masks</strong></td>
+                          <td>Highlighting the regions to be inpainted</td>
+                          <td>(10,000, 4)</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Descriptions</strong></td>
+                          <td>
+                            Marketing pitches describing the design intent
+                          </td>
+                          <td>List of 10,000 strings</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Parametric Data</strong></td>
+                          <td>Numerical values representing design features</td>
+                          <td>(10,000, n_features)</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Targets</strong></td>
+                          <td>Ground truth complete images for training</td>
+                          <td>(10,000, 3, 128, 128)</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="d-flex flex-column gap-3">
+                      <h2>Test Data</h2>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Component</th>
+                            <th>Description</th>
+                            <th>Shape / Details</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><strong>Test Partial Images</strong></td>
+                            <td>Incomplete test images to be inpainted</td>
+                            <td>(1,000, 3, 128, 128)</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Test Descriptions</strong></td>
+                            <td>Test marketing descriptions</td>
+                            <td>List of 1,000 strings</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Test Parametric Data</strong></td>
+                            <td>Numerical values for test design features</td>
+                            <td>(1,000, n_features)</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- <div class="col-12">
+                  <div class="d-flex flex-column gap-3">
+                    <h2>Test Data</h2>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Component</th>
+                          <th>Description</th>
+                          <th>Shape / Details</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><strong>Test Partial Images</strong></td>
+                          <td>Incomplete test images to be inpainted</td>
+                          <td>(1,000, 3, 128, 128)</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Test Descriptions</strong></td>
+                          <td>Test marketing descriptions</td>
+                          <td>List of 1,000 strings</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Test Parametric Data</strong></td>
+                          <td>Numerical values for test design features</td>
+                          <td>(1,000, n_features)</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="d-block py-5">
+      <div class="container-xl">
+        <div class="methodology">
+          <div class="row gy-5 justify-content-between align-items-center">
+            <div class="col-12">
+              <h1 class="text-center">Methodology</h1>
+            </div>
+            <div class="col-md-4 pt-3">
+              <div class="mth_box">
+                <h4>Models Explored</h4>
+                <ul class="d-flex flex-column gap-1">
+                  <li>VAE, BikeFusion, and UNet.</li>
+                  <li>
+                    Guidance mechanisms like CLIP embeddings and torch loss
+                    functions.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mth_box">
+                <h4>Augmentation</h4>
+                <ul class="d-flex flex-column gap-1">
+                  <li>
+                    Applied transformations like rotations, skewing, and noise.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mth_box">
+                <h4>Experimentation</h4>
+                <ul class="d-flex flex-column gap-1">
+                  <li>
+                    Fine-tuning and multimodal integration improved semantic
+                    alignment
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach d-block py-5">
+      <div class="container-xl">
+        <div class="row gy-5 justify-content-between align-items-center">
+          <div class="col-12">
+            <h1>Approaches</h1>
+          </div>
+          <div class="col-md-6">
+            <div class="d-flex flex-column gap-3">
+              <h2>2.1. VAE (0.95063)</h2>
+              <p>
+                Variational Autoencoders (VAEs) are ideal for tasks that require
+                generative modeling with latent-space representation and
+                probabilistic interpretations. The model captures the overall
+                distribution of the dataset but lacks targeted fine-tuning for
+                task-specific guidance. However, it was a pretty high benchmark
+                to even start with.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="d-block">
+              <img
+                class="w-100 h-100 object-fit-contain"
+                src="images/7.jpg"
+                alt="img"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach d-block py-5">
+      <div class="container-xl">
+        <div class="row gy-5 justify-content-between align-items-center">
+          <div class="col-md-3">
+            <div class="d-block">
+              <img
+                class="w-100 h-100 object-fit-contain"
+                src="images/1.jpg"
+                alt="img"
+              />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="d-flex flex-column gap-3">
+              <h2>2.2. VAE + Data Augmentation (3X of given data) (0.95291)</h2>
+              <p>
+                Data was tripped using
+                <strong>apply_random_mask </strong> function in Utils.py. The
+                approach was to improve generalization and robustness by
+                increasing training data variability. Augmentation exposed the
+                model to diverse input scenarios, helping it generalize better.
+                The next point here can be to apply even more types of masking
+                like shape and sizes. Different rotations can also be used.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="d-block">
+              <img
+                class="w-100 h-100 object-fit-contain"
+                src="images/3.jpg"
+                alt="img"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach d-block py-5">
+      <div class="container-xl">
+        <div class="row gy-5 justify-content-between align-items-center">
+          <div class="col-md-7">
+            <div class="d-flex flex-column gap-3">
+              <h2>
+                2.3. VAE + Data Augmentation with transformation (3X of given
+                data) (0.956444)
+              </h2>
+              <div class="d-flex flex-column gap-3">
+                <p>
+                  This method applies diverse augmentations, including
+                  rotations, skewing, and Gaussian noise, to create a richer
+                  dataset with 3X the original data size. It builds upon the
+                  earlier data augmentation strategy by introducing more diverse
+                  transformations.
+                </p>
+                <p>
+                  Achieved a composite score of 0.956444, higher than the
+                  original VAE (0.95063) and the basic augmentation approach
+                  (0.95291).
+                </p>
+                <p>
+                  The diversity in transformations helped expose the VAE to a
+                  wider range of input scenarios, enabling it to generalize
+                  better to unseen data. Some transformations, like extreme
+                  rotations or skewing, may distort the input beyond real-world
+                  plausibility, potentially introducing noise into the training.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="d-block">
+              <img
+                class="w-100 h-100 object-fit-contain"
+                src="images/4.jpg"
+                alt="img"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach d-block py-5">
+      <div class="container-xl">
+        <div class="row gy-5 justify-content-between align-items-center">
+          <div class="col-md-9 mx-auto">
+            <div class="d-flex flex-column gap-3 dataset-overview">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Transformation</th>
+                    <th>Description</th>
+                    <th>Expected Impact</th>
+                    <th>Observed Results</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Rotation</strong></td>
+                    <td>Random rotation within ±30 degrees</td>
+                    <td>Exposes model to different orientations</td>
+                    <td>Improved generalization</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Skewing</strong></td>
+                    <td>Random affine transformations</td>
+                    <td>Simulates diverse geometric distortions</td>
+                    <td>Balanced robustness</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Gaussian Noise</strong></td>
+                    <td>
+                      Random noise addition to mimic real-world variability
+                    </td>
+                    <td>Increases noise tolerance</td>
+                    <td>Enhanced reconstruction accuracy</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="pt-5 text-center">
+              <strong>Table 2:</strong> Augmentation Strategies (2.3)
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach d-block py-5">
+      <div class="container-xl">
+        <div class="row gy-5 justify-content-between align-items-center">
+          <div class="col-md-6 pe-md-5">
+            <div class="d-flex flex-column gap-3">
+              <h2>
+                2.4. BikeFusion + Guidance 0.5 strength (torch.square) (0.95465)
+              </h2>
+              <p>
+                BikeFusion model uses a guidance mechanism at 0.5 strength, with
+                <strong>torch.square </strong>for computing differences to
+                combine semantic guidance with image reconstruction for better
+                predictions. The balance of guidance strength and
+                <strong>torch.square </strong>
+                loss helped align the generated images with descriptions and
+                targets.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 ps-md-5">
+            <div class="d-flex flex-column gap-3">
+              <h2>
+                2.5. BikeFusion + Guidance 0.1 strength (torch.square) (0.95811)
+              </h2>
+              <p>
+                guidance_function=sample_guidance BikeFusion model with reduced
+                guidance strength (0.1) and <strong> torch.square</strong> loss
+                to test the impact of lower guidance strength on task
+                performance. Lower guidance strength avoided overfitting to
+                descriptions, enabling smoother blending of semantic and image
+                features.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach d-block py-5">
+      <div class="container-xl">
+        <div class="row gy-5 justify-content-between align-items-center">
+          <div class="col-12">
+            <div class="d-block">
+              <img class="fulw" src="images/5.jpg" alt="img" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach d-block py-5">
+      <div class="container-xl">
+        <div class="row gy-5 justify-content-between align-items-center">
+          <div class="col-md-5">
+            <div class="d-flex flex-column gap-3">
+              <h2>
+                2.6. BikeFusion + Task-Specific Guidance
+                (torch.nn.functional.mse_loss) (0.919885)
+              </h2>
+              <p>
+                guidance_function=task_specific_guidance BikeFusion model using
+                task-specific guidance with
+                <strong> torch.nn.functional.mse_loss </strong> to incorporate
+                direct loss computation aligned with the task's reconstruction
+                goals. I felt this can be one of the best ways as Mean Squared
+                Error (MSE) loss calculates the average squared difference
+                between predicted and target values. It is a natural choice for
+                tasks where accurate reconstruction is required, such as image
+                generation, inpainting, and regression. MSE loss must have
+                failed due to its inability to incorporate semantic
+                understanding and perceptual alignment, which are crucial for
+                our task.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="d-block">
+              <img class="fulw" src="images/7.jpg" alt="img" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach d-block py-5">
+      <div class="container-xl">
+        <div class="row gy-5 justify-content-between align-items-center">
+          <div class="col-12">
+            <div class="d-block">
+              <img class="fulw" src="images/6.jpg" alt="img" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach d-block py-5">
+      <div class="container-xl">
+        <div class="row gy-5 justify-content-between align-items-center">
+          <div class="col-md-4">
+            <div class="d-flex flex-column gap-3">
+              <h2>2.7. BikeFusion + CLIP Guidance ( 0.955051)</h2>
+              <div class="d-flex flex-column gap-3">
+                <p>
+                  guidance_function=text_guidance Combined BikeFusion's
+                  diffusion model with CLIP embeddings for multi-modal guidance
+                  align inpainting with textual descriptions to integrate
+                  semantic context from textual descriptions into the image
+                  inpainting process for better alignment with design prompts.
+                </p>
+                <p>
+                  The strong text-to-image alignment capabilities of CLIP
+                  effectively steered the diffusion model toward generating more
+                  contextually accurate images. CLIP guidance (2.6) performed
+                  well but didn't outperform BikeFusion's 0.1 guidance (2.4) due
+                  to its over-reliance on textual semantics and lack of optimal
+                  fine-tuning for the specific task. The results highlight that
+                  balancing semantic guidance strength is crucial, as
+                  BikeFusion's 0.1 guidance demonstrated superior performance by
+                  effectively blending textual and visual features without
+                  overemphasis.
+                </p>
+                <p>
+                  Also, it can be the CLIP doesn’t understand the “domain”
+                  relationship as shown by cosine similarity between image and
+                  accurate text prompt is just 0.2757.
+                </p>
+                <p>
+                  Theoretically, I feel if we fine tune clip on a dataset of
+                  10,000 pairs, we might get better results.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="d-block">
+              <img class="fulw" src="images/8.jpg" alt="img" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach d-block py-5">
+      <div class="container-xl">
+        <div class="row gy-5 justify-content-between align-items-center">
+          <div class="col-md-8 mx-auto">
+            <div class="d-flex flex-column gap-3">
+              <h2>2.8. Unet</h2>
+              <div class="d-flex flex-column gap-3">
+                <p>
+                  Convolutional neural network with encoder-decoder
+                  architecture, used for inpainting by reconstructing masked
+                  regions directly to explore a simpler, computationally
+                  efficient architecture compared to BikeFusion for image
+                  reconstruction tasks.
+                </p>
+                <p>
+                  Performance was lower than BikeFusion with CLIP guidance due
+                  to the lack of multi-modal integration and the inability to
+                  leverage textual guidance.
+                </p>
+                <p>
+                  UNet focused solely on pixel-level reconstruction without
+                  semantic understanding, limiting its ability to generate
+                  contextually relevant inpaintings.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach d-block py-5">
+      <div class="container-xl">
+        <div class="row gy-5 justify-content-between align-items-center">
+          <div class="col-md-7">
+            <div class="d-flex flex-column gap-3">
+              <h2>2.9. GloVe + VAE</h2>
+              <div class="d-flex flex-column gap-3">
+                <p>
+                  The GloVe + VAE approach combined semantic understanding from
+                  GloVe embeddings with the generative modeling power of VAEs to
+                  reconstruct images based on textual descriptions. While it
+                  effectively captured some contextual relationships, the
+                  alignment between text embeddings and image features was
+                  inconsistent, especially for complex masks or ambiguous
+                  descriptions.
+                </p>
+                <p>
+                  This inconsistency resulted in higher reconstruction errors
+                  (MAE) for heavily masked images. Future improvements could
+                  involve using richer embeddings like CLIP(which I used.. Not
+                  so successful) or attention mechanisms to better integrate
+                  text and image data.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="d-block">
+              <img class="fulw" src="images/9.jpg" alt="img" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach d-block py-5">
+      <div class="container-xl">
+        <div class="row gy-5 justify-content-between align-items-center">
+          <div class="col-md-8 mx-auto">
+            <div class="d-flex flex-column gap-3">
+              <h2>2.10. Stable Diffusion</h2>
+              <div class="d-flex flex-column gap-3">
+                <p>
+                  The idea was to combine image and text data to fine-tune
+                  Stable Diffusion, aiming to make it domain-specific and better
+                  suited for generating accurate reconstructions. However, I
+                  found that direct fine-tuning of Stable Diffusion is not
+                  straightforward due to its architecture and pre-trained
+                  constraints. Additionally, the model's focus on creative
+                  generation rather than precise reconstructions made it less
+                  effective for our specific use case. This highlights the need
+                  for models more tailored to structured inpainting tasks.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach d-block py-5">
+      <div class="container-xl">
+        <div class="row gy-5 justify-content-between align-items-center">
+          <div class="col-md-7">
+            <div class="d-flex flex-column gap-2 pb-4">
+              <h2>Summary</h2>
+            </div>
+            <div class="d-flex flex-column gap-3 dataset-overview">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Approach ID</th>
+                    <th>Methodology</th>
+                    <th>Composite Score</th>
+                    <th>Key Features/Remarks</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>2.1</strong></td>
+                    <td>VAE (Given)</td>
+                    <td>0.95063</td>
+                    <td>
+                      Baseline method with probabilistic latent-space
+                      representation and generative modeling.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>2.2</strong></td>
+                    <td>VAE + Data Augmentation (3X)</td>
+                    <td>0.95291</td>
+                    <td>
+                      Data tripled via random masking to improve generalization.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>2.3</strong></td>
+                    <td>VAE + Data Augmentation with Transformations</td>
+                    <td>0.95644</td>
+                    <td>
+                      Applied diverse transformations like rotation, skewing,
+                      and Gaussian noise to improve robustness.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>2.4</strong></td>
+                    <td>BikeFusion + Guidance 0.5 Strength (torch.square)</td>
+                    <td>0.95465</td>
+                    <td>
+                      Semantic guidance with a strength of 0.5 to balance
+                      description alignment and reconstruction.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>2.5</strong></td>
+                    <td>BikeFusion + Guidance 0.1 Strength (torch.square)</td>
+                    <td>0.95811</td>
+                    <td>
+                      Lower guidance strength avoided overfitting and improved
+                      blending of textual and visual features.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>2.6</strong></td>
+                    <td>
+                      BikeFusion + Task-Specific Guidance
+                      (torch.nn.functional.mse_loss)
+                    </td>
+                    <td>0.919885</td>
+                    <td>
+                      MSE loss failed to incorporate semantic understanding and
+                      perceptual alignment.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>2.7</strong></td>
+                    <td>BikeFusion + CLIP Guidance</td>
+                    <td>0.95505</td>
+                    <td>
+                      Multi-modal guidance combining CLIP embeddings with
+                      inpainting but lacked domain-specific fine-tuning.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>2.8</strong></td>
+                    <td>UNet</td>
+                    <td>-</td>
+                    <td>
+                      Encoder-decoder architecture focused on pixel-level
+                      reconstruction, lacked multi-modal integration.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>2.9</strong></td>
+                    <td>GloVe + VAE</td>
+                    <td>-</td>
+                    <td>
+                      Combined semantic understanding from GloVe embeddings with
+                      VAEs but struggled with alignment.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>2.10</strong></td>
+                    <td>Stable Diffusion</td>
+                    <td>-</td>
+                    <td>
+                      Difficult to fine-tune and better suited for creative
+                      generation than structured inpainting tasks.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="d-block">
+              <img class="fulw" src="images/blog-4.jpg" alt="img" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="container-xl">
+      <p><strong>Table 3:</strong> Approaches and Performance Comparison</p>
+    </div>
+    <section class="approach d-block py-5">
+      <div class="container-xl">
+        <div class="row gy-5 justify-content-between align-items-center">
+          <div class="col-md-4">
+            <div class="d-block">
+              <img class="fulw" src="images/cancu.png" alt="img" />
+            </div>
+            <p class="pt-5">
+              <strong>Table 4:</strong> Observations and Key Takeaways
+            </p>
+          </div>
+          <div class="col-md-7">
+            <div class="d-flex flex-column gap-2 pb-4">
+              <h2>Discussion</h2>
+              <p>
+                Nothing changed with this scheduler =
+                CosineAnnealingLR(optimizer, T_max=50, eta_min=1e-5)
+              </p>
+            </div>
+            <div class="d-flex flex-column gap-3 dataset-overview">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Methodology</th>
+                    <th>Strengths</th>
+                    <th>Weaknesses</th>
+                    <th>Suggestions for Improvement</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>VAE</strong></td>
+                    <td>Strong baseline for generative modeling</td>
+                    <td>Lacks targeted task-specific guidance</td>
+                    <td>Incorporate more targeted fine-tuning</td>
+                  </tr>
+                  <tr>
+                    <td><strong>VAE + Augmentation</strong></td>
+                    <td>
+                      Improved generalization through increased data variability
+                    </td>
+                    <td>Limited diversity in augmentations</td>
+                    <td>
+                      Introduce varied masking, rotations, and transformations
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>BikeFusion</strong></td>
+                    <td>Balanced semantic and image guidance</td>
+                    <td>
+                      Over-reliance on guidance strength for specific
+                      performance
+                    </td>
+                    <td>Fine-tune guidance strength dynamically</td>
+                  </tr>
+                  <tr>
+                    <td><strong>BikeFusion + CLIP Guidance</strong></td>
+                    <td>Integrated semantic context from text effectively</td>
+                    <td>Domain knowledge in CLIP embeddings was suboptimal</td>
+                    <td>Fine-tune CLIP on domain-specific dataset</td>
+                  </tr>
+                  <tr>
+                    <td><strong>UNet</strong></td>
+                    <td>
+                      Computationally efficient pixel-level reconstruction
+                    </td>
+                    <td>
+                      Lacks semantic understanding, relying solely on pixel
+                      reconstruction
+                    </td>
+                    <td>
+                      Add multi-modal capabilities to leverage textual
+                      descriptions
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>GloVe + VAE</strong></td>
+                    <td>
+                      Explored text-image integration through pre-trained
+                      embeddings
+                    </td>
+                    <td>
+                      Inconsistent alignment between text embeddings and image
+                      features
+                    </td>
+                    <td>
+                      Replace GloVe with richer embeddings like CLIP or use
+                      attention mechanisms
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Stable Diffusion</strong></td>
+                    <td>Potential for creative text-to-image generation</td>
+                    <td>Not optimized for structured inpainting tasks</td>
+                    <td>
+                      Develop domain-specific variations of Stable Diffusion
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach d-block py-5">
+      <div class="container-xl">
+        <div class="row gy-5 justify-content-between align-items-center">
+          <div class="col-md-8 mx-auto">
+            <div class="d-flex flex-column gap-3 dataset-overview">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Metric</th>
+                    <th>Definition</th>
+                    <th>Key Observation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Composite Score</strong></td>
+                    <td>
+                      Weighted combination of SSIM and MAE, adjusted for
+                      perceptual quality and alignment
+                    </td>
+                    <td>
+                      Highest score achieved with BikeFusion + Guidance 0.1
+                      Strength (0.95811).
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>SSIM</strong></td>
+                    <td>
+                      Measures structural similarity between reconstructed and
+                      target images
+                    </td>
+                    <td>Augmentation and guidance improved SSIM.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>MAE</strong></td>
+                    <td>
+                      Mean absolute error between predicted and ground truth
+                      pixels
+                    </td>
+                    <td>
+                      Lower MAE observed with multi-modal approaches like CLIP
+                      Guidance.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="container-xl">
+      <p class="text-center"><strong>Table 5:</strong> Metrics Summary</p>
+    </div>
+    <section class="d-block py-5 container_cart">
+      <div class="container-xl">
+        <h2>AI Model Comparison</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="container_cart">
+              <div class="card">
+                <div class="icon">📊</div>
+                <div class="title">VAE as a Strong Baseline</div>
+                <div class="description">
+                  The VAE model performed surprisingly well, setting a solid
+                  benchmark with a score of 0.95063. However, it lacked any
+                  task-specific fine-tuning, which limited its ability to adapt
+                  to our specific needs.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="container_cart">
+              <div class="card">
+                <div class="icon">🔄</div>
+                <div class="title">Power of Data Augmentation</div>
+                <div class="description">
+                  Adding more data through augmentation, such as random masks
+                  and transformations like rotation and noise, significantly
+                  boosted the model's performance to 0.95644. This showed how
+                  exposing the model to diverse scenarios made it better at
+                  generalizing.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="container_cart">
+              <div class="card">
+                <div class="icon">🧠🔧</div>
+                <div class="title">BikeFusion's Guidance Mechanism</div>
+                <div class="description">
+                  BikeFusion, combined with semantic guidance, struck a great
+                  balance between understanding text descriptions and
+                  reconstructing images. Reducing the guidance strength to 0.1
+                  delivered the best results (0.95811), proving that subtle
+                  adjustments can have a big impact.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="container_cart">
+              <div class="card">
+                <div class="icon">🔍</div>
+                <div class="title">CLIP Guidance Strengths and Weaknesses</div>
+                <div class="description">
+                  Using CLIP embeddings for guidance brought in semantic context
+                  from text, but its lack of domain-specific understanding held
+                  it back at 0.95505. Fine-tuning CLIP on a dataset of bike
+                  designs might unlock its full potential.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="container_cart">
+              <div class="card">
+                <div class="icon">🚫</div>
+                <div class="title">Why MSE Loss Didn't Work</div>
+                <div class="description">
+                  Using task-specific MSE loss fell short (0.919885) because it
+                  couldn’t capture the semantic nuances of the task. This shows
+                  that reconstruction isn’t just about pixel accuracy—it needs
+                  to “understand” the design intent too.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="container_cart">
+              <div class="card">
+                <div class="icon">⚙️</div>
+                <div class="title">UNet's Simplicity and Limits</div>
+                <div class="description">
+                  UNet's simple encoder-decoder architecture worked well for
+                  straightforward inpainting but lacked the ability to integrate
+                  textual guidance. Without semantic context, it couldn’t
+                  generate designs as coherent as BikeFusion.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="container_cart">
+              <div class="card">
+                <div class="icon">💬</div>
+                <div class="title">GloVe Struggles with Alignment</div>
+                <div class="description">
+                  Combining GloVe embeddings with the VAE had potential but
+                  didn’t align text and images consistently, especially for
+                  complex or ambiguous descriptions. This highlights the need
+                  for richer embeddings or models like CLIP (fine-tuned for the
+                  task).
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="container_cart">
+              <div class="card">
+                <div class="icon">🎨</div>
+                <div class="title">Stable Diffusion’s Misfit</div>
+                <div class="description">
+                  Stable Diffusion, while great for creative tasks, didn’t suit
+                  our structured inpainting needs. It wasn’t easy to fine-tune
+                  for domain-specific tasks and struggled to generate accurate
+                  reconstructions.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="container_cart">
+              <div class="card">
+                <div class="icon">🏆</div>
+                <div class="title">Composite Score as a Guide</div>
+                <div class="description">
+                  The composite score showed how well models balanced
+                  reconstruction accuracy (MAE) with perceptual quality (SSIM).
+                  Models that combined semantic guidance with inpainting
+                  consistently scored higher
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="container_cart">
+              <div class="card">
+                <div class="icon">🚀</div>
+                <div class="title">Future Steps</div>
+                <div class="description">
+                  To push performance further, we could fine-tune multi-modal
+                  models like CLIP, explore dynamic guidance adjustments, and
+                  experiment with attention-based architectures.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
